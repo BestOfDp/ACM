@@ -100,7 +100,8 @@ int main()
 	cout << "请选择操作:" << endl; 
 	cout << "1:生成最小堆" << endl; 
 	cout << "2:插入节点" << endl; 
-	cout << "3:删除节点" << endl; 
+	cout << "3:删除节点" << endl;
+	cout << "4:排序" << endl; 
 	int n;
 	while(1){
 		cin >> n;
@@ -131,6 +132,23 @@ int main()
 				delete_node(node);
 				break;
 			} 
+			case 4:{
+				if(is_small_heap == false){
+					cout << "先生成最小堆" << endl;
+					break;
+				}
+				vector<int>ans;
+				int length = v.size();
+				for(int i=0;i<length;i++){
+					ans.push_back(v[0]);
+					delete_node(0);
+				}
+				for(int i=0;i<ans.size();i++){
+					cout << ans[i] << " ";
+				}
+				cout << endl;
+				break;
+			}
 		}	
 	}
-} 
+}
