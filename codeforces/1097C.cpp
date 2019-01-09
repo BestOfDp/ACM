@@ -1,35 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 string s;
-vector<char>temp;
+stack<char>temp;
 int ans;
 // l,r代表( )个数，ansl,ansr 代表 “情况”的个数 
 int l[500005],ansl[500005];
 int r[500005],ansr[500005];
 void getString(int index){
-	temp.clear();
+	while(!temp.empty()) temp.pop();
 	for(int i=0;i<s.size();i++){ 
 		if(s[i]=='('){
-			temp.push_back(s[i]);
+			temp.push(s[i]);
 			l[index]++;
 		}
 		else{
-			if(temp.size()==0){
-				temp.push_back(s[i]);
+			if(temp.empty()){
+				temp.push(s[i]);
 				r[index]++;
 				continue;
 			}
-			if(temp[temp.size()-1]=='(') {
-				temp.pop_back();
+			if(temp.top()=='(') {
+				temp.pop();
 				l[index]--;		
 			}
 			else{
-				temp.push_back(s[i]);
+				temp.push(s[i]);
 				r[index]++;	
 			}
 		}
 	} 
-	if(l[index]==r[index] && temp.size()==0){
+	if(l[index]==r[index] && temp.empty()){
 		ans++;
 	}else {
 		if(r[index]==0 && l[index]!=0){
