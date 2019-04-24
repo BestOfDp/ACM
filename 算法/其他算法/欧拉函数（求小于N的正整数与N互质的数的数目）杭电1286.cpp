@@ -2,24 +2,6 @@
 using namespace std;
 int f[10000]={2};
 
-//int Eular(int a)
-//{
-//	int index=0;
-//	int b[10000];
-//	for(int i=0;f[i]<a;i++)
-//	{
-//		if(a%f[i]==0)
-//		{
-//			b[index++]=f[i];
-//		}
-//	}
-//	for(int i=0;i<index;i++)
-//	{
-//		a=(a-a/b[i]);
-//	}
-//	return a;
-//}
-
 int Eular(int n)
 {
 	int rea = n;
